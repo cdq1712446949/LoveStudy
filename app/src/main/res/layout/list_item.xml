@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:descendantFocusability="blocksDescendants">
+
+    <TextView
+        android:id="@+id/docunment_name"
+        android:layout_width="252dp"
+        android:layout_height="33dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:text="TextView"
+        android:background="@color/white"
+        android:textSize="15sp"/>
+
+    <!--<ImageButton-->
+        <!--android:id="@+id/document_down"-->
+        <!--android:layout_width="45dp"-->
+        <!--android:layout_height="34dp"-->
+        <!--android:layout_below="@+id/docunment_name"-->
+        <!--android:layout_toEndOf="@+id/text_up"-->
+        <!--/>-->
+
+    <ImageButton
+        android:id="@+id/document_up"
+        android:layout_width="69dp"
+        android:layout_height="34dp"
+        android:layout_below="@+id/docunment_name"
+        android:layout_toEndOf="@+id/docunment_name"
+        android:src="@drawable/zan_no"
+        android:background="@drawable/sing_button_home"
+        android:focusable="false"/>
+
+    <TextView
+        android:id="@+id/document_author"
+        android:layout_width="253dp"
+        android:layout_height="31dp"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/docunment_name"
+        android:background="@color/white"
+        android:text="TextView" />
+
+    <TextView
+        android:id="@+id/document_date"
+        android:layout_width="132dp"
+        android:layout_height="32dp"
+        android:layout_alignParentTop="true"
+        android:layout_toEndOf="@+id/docunment_name"
+        android:text="TextView"
+        android:background="@color/white"/>
+
+    <TextView
+        android:id="@+id/text_up"
+        android:layout_width="wrap_content"
+        android:layout_height="32dp"
+        android:layout_below="@+id/docunment_name"
+        android:layout_toEndOf="@+id/document_up"
+        android:text="TextView"
+        android:gravity="center"/>
+
+    <!--<TextView-->
+        <!--android:id="@+id/text_down"-->
+        <!--android:layout_width="43dp"-->
+        <!--android:layout_height="33dp"-->
+        <!--android:layout_below="@+id/docunment_name"-->
+        <!--android:layout_toEndOf="@+id/document_down"-->
+        <!--android:text="TextView" />-->
+
+
+</RelativeLayout>

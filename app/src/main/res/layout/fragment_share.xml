@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <TextView
+        android:id="@+id/share_text_path"
+        android:layout_width="match_parent"
+        android:layout_height="94dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:text="" />
+
+    <Button
+        android:id="@+id/share_button_path"
+        android:layout_width="match_parent"
+        android:layout_height="34dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="117dp"
+        android:background="@drawable/sign_button"
+        android:text="选择文件" />
+
+    <TextView
+        android:id="@+id/share_text_zhuanye"
+        android:layout_width="123dp"
+        android:layout_height="33dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignTop="@+id/share_spinner_zhuanye"
+        android:gravity="center"
+        android:text="选择专业:" />
+
+    <Spinner
+        android:id="@+id/share_spinner_zhuanye"
+        android:layout_width="261dp"
+        android:layout_height="34dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="185dp"
+        android:spinnerMode="dialog"
+        android:gravity="center"/>
+
+    <Button
+        android:id="@+id/share_button_share"
+        android:layout_width="match_parent"
+        android:layout_height="34dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="211dp"
+        android:background="@drawable/sign_button"
+        android:text="分享" />
+</RelativeLayout>

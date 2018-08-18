@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <SearchView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/button1_1"
+            android:layout_width="wrap_content"
+            android:layout_weight="1"
+            android:text="艺术"
+            android:layout_height="@dimen/home_button_height"
+            android:background="@color/white"
+            android:drawableTop="@drawable/art"/>
+
+        <Button
+            android:id="@+id/button1_2"
+            android:layout_width="wrap_content"
+            android:layout_weight="1"
+            android:text="工学"
+            android:layout_height="@dimen/home_button_height"
+            android:background="@color/white"
+            android:drawableTop="@drawable/engineering"/>
+
+        <Button
+            android:id="@+id/button1_3"
+            android:layout_width="wrap_content"
+            android:layout_weight="1"
+            android:text="文学"
+            android:layout_height="@dimen/home_button_height"
+            android:background="@color/white"
+            android:drawableTop="@drawable/literature"/>
+
+        <Button
+            android:id="@+id/button1_4"
+            android:layout_width="wrap_content"
+            android:layout_weight="1"
+            android:text="机械"
+            android:layout_height="@dimen/home_button_height"
+            android:background="@color/white"
+            android:drawableTop="@drawable/mechanics"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/button2_1"
+            android:layout_width="wrap_content"
+            android:layout_weight="1"
+            android:text="医学"
+            android:layout_height="@dimen/home_button_height"
+            android:background="@color/white"
+            android:drawableTop="@drawable/medical"/>
+
+        <Button
+            android:id="@+id/button2_2"
+            android:layout_width="wrap_content"
+            android:layout_weight="1"
+            android:text="金融"
+            android:layout_height="@dimen/home_button_height"
+            android:background="@color/white"
+            android:drawableTop="@drawable/finance"/>
+
+        <Button
+            android:id="@+id/button2_3"
+            android:layout_width="wrap_content"
+            android:layout_weight="1"
+            android:text="葡萄酒"
+            android:layout_height="@dimen/home_button_height"
+            android:background="@color/white"
+            android:drawableTop="@drawable/wine"/>
+
+        <Button
+            android:id="@+id/button2_4"
+            android:layout_width="wrap_content"
+            android:layout_weight="1"
+            android:text="更多"
+            android:layout_height="@dimen/home_button_height"
+            android:background="@color/white"
+            android:drawableTop="@drawable/more"/>
+
+    </LinearLayout>
+
+
+   <ListView
+       android:id="@+id/docunment_list"
+       android:layout_width="match_parent"
+       android:layout_height="match_parent"></ListView>
+
+</LinearLayout>

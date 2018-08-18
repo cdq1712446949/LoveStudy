@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:context=".RegistActivity"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/title_blue">
+
+        <TextView
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="@string/title_regist_text"
+            android:textColor="@color/dark"
+            android:textSize="30sp"/>
+
+    </LinearLayout>
+
+    <EditText
+        android:id="@+id/regist_text_name"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:ems="10"
+        android:hint="@string/regist_name"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:theme="@style/MyEditText"/>
+
+    <EditText
+        android:id="@+id/regist_text_phone"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:ems="10"
+        android:inputType="phone"
+        android:hint="@string/regist_phone"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:theme="@style/MyEditText"/>
+
+    <EditText
+        android:id="@+id/regist_text_password"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:ems="10"
+        android:inputType="textPassword"
+        android:hint="@string/regist_password"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:theme="@style/MyEditText"/>
+
+    <LinearLayout
+        android:layout_gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <EditText
+            android:id="@+id/regist_text_yanzheng"
+            android:layout_width="188dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:theme="@style/MyEditText"/>
+
+        <Button
+            android:id="@+id/regist_button_yanzheng"
+            android:layout_width="161dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/regist_button_text"
+            android:background="@drawable/sign_button"/>
+
+    </LinearLayout>
+    
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="50dp" />
+    
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center">
+
+        <Button
+            android:id="@+id/regist_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/regist_button_sure"
+            android:background="@drawable/sign_button"/>
+
+        <Button
+            android:id="@+id/regist_button_cancel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/regist_button_cancel"
+            android:background="@drawable/sign_button"/>
+        
+    </LinearLayout>
+    
+
+</LinearLayout>

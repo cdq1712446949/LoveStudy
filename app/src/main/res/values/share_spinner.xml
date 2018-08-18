@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+   <string-array name="share_spinner">
+       <item name="yishu">艺术</item>
+       <item name="gonsxue">工学</item>
+       <item name="wenxue">文学</item>
+       <item name="jixie">机械</item>
+       <item name="yixue">医学</item>
+       <item name="jinrong">金融</item>
+       <item name="putaojiu">葡萄酒</item>
+   </string-array>
+</resources>
