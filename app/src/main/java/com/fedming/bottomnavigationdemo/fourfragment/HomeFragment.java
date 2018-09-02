@@ -39,7 +39,7 @@ public class HomeFragment extends Fragment {
 
     private ListView listView;
     private ArrayList<Document> documentlist = new ArrayList<Document>();
-    private int size=0;
+    private int resize = 0;
     private int listsize;
 
     @Nullable
@@ -58,11 +58,11 @@ public class HomeFragment extends Fragment {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Log.i("---tag--->","item");
-                Log.i("-----position--->",String.valueOf(position));
+                Log.i("---tag--->", "item");
+                Log.i("-----position--->", String.valueOf(position));
                 Intent intent = new Intent(getContext(), OpenDocumentAcitivity.class);
-                Log.i("-----url----->",documentlist.get(position).getWendang());
-                intent.putExtra("url",documentlist.get(position).getWendang());
+                Log.i("-----url----->", documentlist.get(position).getWendang());
+                intent.putExtra("url", documentlist.get(position).getWendang());
                 startActivity(intent);
             }
         });
@@ -73,8 +73,11 @@ public class HomeFragment extends Fragment {
         query.findObjects(new FindListener<Document>() {
             @Override
             public void done(List<Document> list, BmobException e) {
+                if (resize == list.size()){
+                    documentlist.clear();
+                }
                 if (e == null) {
-                    listsize=list.size();
+                    listsize = list.size();
                     for (int i = 0; i < list.size(); i++) {
                         Document document = new Document();
                         document = list.get(i);
@@ -84,10 +87,12 @@ public class HomeFragment extends Fragment {
                     Log.i("-----Massage--->", e.getMessage());
                 }
                 Log.i("-----documentsize--->", String.valueOf(documentlist.size()));
+                resize=list.size();
                 listView.setAdapter(new NewsAdapter());
             }
         });
     }
+
     private class NewsAdapter extends BaseAdapter {
 
         @Override
@@ -108,22 +113,22 @@ public class HomeFragment extends Fragment {
         @Override
         public View getView(int position, View convertView, ViewGroup parent) {
 
-            Log.i("-----setView----->","setView");
+            Log.i("-----setView----->", "setView");
             final ViewHolder holder;
-            if (convertView==null){
-                holder=new ViewHolder();
-                convertView=View.inflate(getContext(),R.layout.list_item,null);
+            if (convertView == null) {
+                holder = new ViewHolder();
+                convertView = View.inflate(getContext(), R.layout.list_item, null);
 //                holder.button_down=(ImageButton)convertView.findViewById(R.id.document_down);
 //                holder.button_down.setBackground(getResources().getDrawable(R.drawable.cai_no));
-                holder.button_up=(ImageButton)convertView.findViewById(R.id.document_up);
-                holder.text_author=(TextView)convertView.findViewById(R.id.document_author);
-                holder.text_date=(TextView)convertView.findViewById(R.id.document_date);
-                holder.text_name=(TextView)convertView.findViewById(R.id.docunment_name);
-                holder.text_up=(TextView)convertView.findViewById(R.id.text_up);
+                holder.button_up = (ImageButton) convertView.findViewById(R.id.document_up);
+                holder.text_author = (TextView) convertView.findViewById(R.id.document_author);
+                holder.text_date = (TextView) convertView.findViewById(R.id.document_date);
+                holder.text_name = (TextView) convertView.findViewById(R.id.docunment_name);
+                holder.text_up = (TextView) convertView.findViewById(R.id.text_up);
 //                holder.text_down=(TextView)convertView.findViewById(R.id.text_down);
                 convertView.setTag(holder);
-            }else {
-                holder=(ViewHolder)convertView.getTag();
+            } else {
+                holder = (ViewHolder) convertView.getTag();
             }
             Document item;
             item = (Document) getItem(position);
@@ -135,22 +140,23 @@ public class HomeFragment extends Fragment {
             holder.button_up.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Log.i("-----Click--->","Click");
-                    if (holder.button_up.getBackground()==getResources().getDrawable(R.drawable.zan_no)){
-                        holder.button_up.setBackground(getResources().getDrawable(R.drawable.zan_yes));
-                    }
+                    Log.i("-----Click--->", "Click");
+                        holder.button_up.setImageResource(R.drawable.zan_yes);
                 }
             });
+            if (position==documentlist.size()){
+                documentlist.clear();
+            }
             return convertView;
         }
     }
 
-    private static class ViewHolder{
+    private static class ViewHolder {
         TextView text_name;
         TextView text_author;
         TextView text_date;
         TextView text_up;
-//        TextView text_down;
+        //        TextView text_down;
         ImageButton button_up;
 //        ImageButton button_down;
     }

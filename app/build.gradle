@@ -65,4 +65,5 @@ dependencies {
     //    implementation 'com.zhy:base-rvadapter:3.0.3'
     implementation files('libs/tbs_sdk_thirdapp_v3.6.0.1315_43612_sharewithdownload_withoutGame_obfs_20180718_102847.jar')
 //    implementation files('libs/tbs_sdk_thirdapp_v3.1.0.1034_43100_sharewithdownload_obfs_20170301_182143.jar')
+    implementation 'com.squareup.picasso:picasso:2.3.2'
 }
