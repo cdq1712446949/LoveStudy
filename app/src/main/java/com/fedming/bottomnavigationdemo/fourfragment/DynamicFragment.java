@@ -66,7 +66,6 @@ public class DynamicFragment extends android.support.v4.app.Fragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_dongtai, null);
         Toolbar toolbar = (Toolbar) view.findViewById(R.id.toolbar);
-//        setActionBar(toolbar);
         coordinatorLayout = (CoordinatorLayout) view.findViewById(R.id.line_coordinatorLayout);
         recyclerview = (RecyclerView) view.findViewById(R.id.line_recycler);
         mLayoutManager = new LinearLayoutManager(getContext());

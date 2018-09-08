@@ -21,5 +21,15 @@
         <attr name="show_bottom_line" format="boolean"/>//是否显示下划线
     </declare-styleable>
 
+    <declare-styleable name="BannerIndicator">
+        <!-- 圆点的颜色 -->
+        <attr name="selectColor" format="color" />
+        <!-- 未选中圆点的颜色 -->
+        <attr name="unselectedColor" format="color" />
+        <!-- 圆点的大小 -->
+        <attr name="radius" format="dimension" />
+        <!-- 圆点间间距的大小 -->
+        <attr name="space" format="dimension" />
+    </declare-styleable>
 
 </resources>
