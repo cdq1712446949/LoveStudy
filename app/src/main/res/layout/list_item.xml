@@ -7,21 +7,15 @@
 
     <TextView
         android:id="@+id/docunment_name"
-        android:layout_width="252dp"
+        android:layout_width="264dp"
         android:layout_height="33dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:text="TextView"
+        android:layout_marginStart="14dp"
         android:background="@color/white"
-        android:textSize="15sp"/>
+        android:text="TextView"
+        android:textSize="15sp" />
 
-    <!--<ImageButton-->
-        <!--android:id="@+id/document_down"-->
-        <!--android:layout_width="45dp"-->
-        <!--android:layout_height="34dp"-->
-        <!--android:layout_below="@+id/docunment_name"-->
-        <!--android:layout_toEndOf="@+id/text_up"-->
-        <!--/>-->
 
     <ImageButton
         android:id="@+id/document_up"
@@ -35,21 +29,23 @@
 
     <TextView
         android:id="@+id/document_author"
-        android:layout_width="253dp"
+        android:layout_width="269dp"
         android:layout_height="31dp"
         android:layout_alignParentStart="true"
         android:layout_below="@+id/docunment_name"
+        android:layout_marginStart="14dp"
         android:background="@color/white"
         android:text="TextView" />
 
     <TextView
         android:id="@+id/document_date"
-        android:layout_width="132dp"
+        android:layout_width="130dp"
         android:layout_height="32dp"
         android:layout_alignParentTop="true"
+        android:layout_marginStart="1dp"
         android:layout_toEndOf="@+id/docunment_name"
-        android:text="TextView"
-        android:background="@color/white"/>
+        android:background="@color/white"
+        android:text="TextView" />
 
     <TextView
         android:id="@+id/text_up"
@@ -57,8 +53,8 @@
         android:layout_height="32dp"
         android:layout_below="@+id/docunment_name"
         android:layout_toEndOf="@+id/document_up"
-        android:text="TextView"
-        android:gravity="center"/>
+        android:gravity="center"
+        android:text="TextView" />
 
     <!--<TextView-->
         <!--android:id="@+id/text_down"-->

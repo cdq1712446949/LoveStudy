@@ -1,5 +1,6 @@
 package com.fedming.bottomnavigationdemo.fourfragment;
 
+import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -16,9 +17,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.BaseAdapter;
+import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.fedming.bottomnavigationdemo.OpenDocumentAcitivity;
 import com.fedming.bottomnavigationdemo.R;
@@ -46,7 +49,7 @@ public class HomeFragment extends Fragment {
     private ArrayList<Document> documentlist = new ArrayList<Document>();
     private int resize = 0;
     private int listsize;
-    private List<Integer> list=new ArrayList<Integer>(4);
+    private List<Integer> list = new ArrayList<Integer>(4);
 
     @Nullable
     @Override
@@ -63,18 +66,17 @@ public class HomeFragment extends Fragment {
 
 
         BannerAdapter adapter = new BannerAdapter(getContext(), list);
-        final RecyclerView recyclerView = (RecyclerView)view. findViewById(R.id.recycler);
+        final RecyclerView recyclerView = (RecyclerView) view.findViewById(R.id.recycler);
         final SmoothLinearLayoutManager layoutManager = new SmoothLinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false);
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setHasFixedSize(true);
         recyclerView.setAdapter(adapter);
         recyclerView.scrollToPosition(list.size() * 10);
-
         PagerSnapHelper snapHelper = new PagerSnapHelper();
         snapHelper.attachToRecyclerView(recyclerView);
 
 
-        final BannerIndicator bannerIndicator = (BannerIndicator)view. findViewById(R.id.indicator);
+        final BannerIndicator bannerIndicator = (BannerIndicator) view.findViewById(R.id.indicator);
         bannerIndicator.setNumber(list.size());
 
         recyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
@@ -115,11 +117,18 @@ public class HomeFragment extends Fragment {
     }
 
     private void getDocument() {
-        BmobQuery<Document> query = new BmobQuery<Document>();
+        BmobQuery<Document> query = null;
+        try {
+            query = new BmobQuery<Document>();
+        } catch (Exception e) {
+            Dialog dialog=new Dialog(getContext(),Dialog.BUTTON_NEGATIVE);
+            dialog.setTitle("请连接网络");
+            dialog.show();
+        }
         query.findObjects(new FindListener<Document>() {
             @Override
             public void done(List<Document> list, BmobException e) {
-                if (resize == list.size()){
+                if (resize == list.size()) {
                     documentlist.clear();
                 }
                 if (e == null) {
@@ -133,7 +142,7 @@ public class HomeFragment extends Fragment {
                     Log.i("-----Massage--->", e.getMessage());
                 }
                 Log.i("-----documentsize--->", String.valueOf(documentlist.size()));
-                resize=list.size();
+                resize = list.size();
                 listView.setAdapter(new NewsAdapter());
             }
         });
@@ -182,11 +191,10 @@ public class HomeFragment extends Fragment {
             holder.button_up.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Log.i("-----Click--->", "Click");
-                        holder.button_up.setImageResource(R.drawable.zan_yes);
+                    holder.button_up.setImageResource(R.drawable.zan_yes);
                 }
             });
-            if (position==documentlist.size()){
+            if (position == documentlist.size()) {
                 documentlist.clear();
             }
             return convertView;
@@ -201,40 +209,5 @@ public class HomeFragment extends Fragment {
         ImageButton button_up;
     }
 
-    private void BannerView(View view){
-        BannerAdapter adapter = new BannerAdapter(getContext(), list);
-        final RecyclerView recyclerView =(RecyclerView) view.findViewById(R.id.recycler);
-        final SmoothLinearLayoutManager layoutManager = new SmoothLinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false);
-        recyclerView.setLayoutManager(layoutManager);
-        recyclerView.setHasFixedSize(true);
-        recyclerView.setAdapter(adapter);
-        recyclerView.scrollToPosition(list.size() * 10);
-
-        PagerSnapHelper snapHelper = new PagerSnapHelper();
-        snapHelper.attachToRecyclerView(recyclerView);
-
-
-        final BannerIndicator bannerIndicator =(BannerIndicator)view.findViewById(R.id.indicator);
-        bannerIndicator.setNumber(list.size());
-
-        recyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
-            @Override
-            public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
-                if (newState == RecyclerView.SCROLL_STATE_IDLE) {
-                    int i = layoutManager.findFirstVisibleItemPosition() % list.size();
-                    bannerIndicator.setPosition(i);
-                }
-            }
-        });
-
-        ScheduledExecutorService scheduledExecutorService = Executors.newScheduledThreadPool(1);
-        scheduledExecutorService.scheduleAtFixedRate(new Runnable() {
-            @Override
-            public void run() {
-                recyclerView.smoothScrollToPosition(layoutManager.findFirstVisibleItemPosition() + 1);
-            }
-        }, 2000, 2000, TimeUnit.MILLISECONDS);
-
-    }
 
 }

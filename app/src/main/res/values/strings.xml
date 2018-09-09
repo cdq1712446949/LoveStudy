@@ -26,7 +26,7 @@
     <string name="title_regist_text">注册</string>
     <string name="title_forget_text">找回密码</string>
     <string name="title_login_text">登录</string>
-    <string name="myfragment_login_text">不登录玩个蛇</string>
+    <string name="myfragment_login_text">登录</string>
     <string name="forget_text_phone">请输入账号/手机号</string>
     <string name="forget_text_yanzheng">验证码</string>
     <string name="text_sure">确定</string>

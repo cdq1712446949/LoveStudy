@@ -12,7 +12,6 @@ import android.view.KeyEvent;
 import android.view.MenuItem;
 import android.widget.Toast;
 
-import com.fedming.bottomnavigationdemo.fourfragment.DynamicFragment;
 import com.fedming.bottomnavigationdemo.fourfragment.HomeFragment;
 import com.fedming.bottomnavigationdemo.fourfragment.MyFragment;
 import com.fedming.bottomnavigationdemo.fourfragment.ShareFragment;
@@ -55,7 +54,6 @@ public class HomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
-//        Log.i("---test-->","onCreat");
         Intent intent=getIntent();
         isLogin=intent.getBooleanExtra("islogin",isLogin);
         if (isLogin){
