@@ -10,11 +10,7 @@ import android.widget.TextView;
 
 import com.fedming.bottomnavigationdemo.R;
 
-/**
- * Created by 赵晨璞 on 2016/6/16.
- * 彩色Snackbar工具类，请看我之前的文章《没时间解释了，快使用Snackbar!——Android Snackbar花式使用指南》
- * http://www.jianshu.com/p/cd1e80e64311
- */
+
 public class SnackbarUtil {
 
     public static final   int Info = 1;

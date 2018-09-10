@@ -49,7 +49,7 @@ public class BannerAdapter extends RecyclerView.Adapter<BannerAdapter.ViewHolder
 
     @Override
     public int getItemCount() {
-        return Integer.MAX_VALUE;
+        return list.size();
     }
 
     class ViewHolder extends RecyclerView.ViewHolder {

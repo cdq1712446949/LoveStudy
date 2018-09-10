@@ -138,36 +138,6 @@ public class MyFragment extends Fragment implements ExpandableListView.OnChildCl
         this.isLogin = islogin;
     }
 
-//    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-//        if (resultCode == RESULT_OK) {
-//            Uri uri = data.getData();
-//            path = getImagePath(uri, null);
-//            ContentResolver cr = this.getContentResolver();
-//            try {
-//                Log.e("qwe", path.toString());
-//                Bitmap bitmap = BitmapFactory.decodeStream(cr.openInputStream(uri));
-//
-//                /* 将Bitmap设定到ImageView */
-//                res_head.setImageBitmap(bitmap);
-//            } catch (FileNotFoundException e) {
-//                Log.e("qwe", e.getMessage(),e);
-//            }
-//        }
-//        super.onActivityResult(requestCode, resultCode, data);
-//    }
-//    private String getImagePath(Uri uri, String seletion) {
-//        String path = null;
-//        Cursor cursor = getContentResolver().query(uri, null, seletion, null, null);
-//        if (cursor != null) {
-//            if (cursor.moveToFirst()) {
-//                path = cursor.getString(cursor.getColumnIndex(MediaStore.Audio.Media.DATA));
-//            }
-//            cursor.close();
-//
-//        }
-//        return path;
-//
-//    }
 
     private void findControl(View view) {
         imagehead = (ImageView) view.findViewById(R.id.h_head);

@@ -12,6 +12,7 @@ import android.view.KeyEvent;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import com.fedming.bottomnavigationdemo.fourfragment.DynamicFragment;
 import com.fedming.bottomnavigationdemo.fourfragment.HomeFragment;
 import com.fedming.bottomnavigationdemo.fourfragment.MyFragment;
 import com.fedming.bottomnavigationdemo.fourfragment.ShareFragment;
@@ -147,7 +148,7 @@ public class HomeActivity extends AppCompatActivity {
 
         adapter.addFragment(new HomeFragment());
         adapter.addFragment(new ShareFragment(isLogin));
-        adapter.addFragment(new Fragment());
+        adapter.addFragment(new DynamicFragment());
         adapter.addFragment(new MyFragment(isLogin));
         viewPager.setAdapter(adapter);
     }
