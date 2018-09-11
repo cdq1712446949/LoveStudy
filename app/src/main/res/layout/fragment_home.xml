@@ -12,7 +12,7 @@
 
     </android.support.v7.widget.RecyclerView>
 
-    <com.fedming.bottomnavigationdemo.fourfragment.BannerIndicator
+    <com.fedming.bottomnavigationdemo.fragment.BannerIndicator
         android:id="@+id/indicator"
         android:layout_width="match_parent"
         android:layout_height="32dp"
