@@ -16,6 +16,11 @@ import cn.bmob.sms.exception.BmobException;
 import cn.bmob.sms.listener.VerifySMSCodeListener;
 import com.fedming.bottomnavigationdemo.utils.Prompt;
 
+/**
+ * @author cdq created on 2018.9.11
+ * 该类用来显示更改手机号页面
+ */
+
 public class ChangePhoneAcitivity extends AppCompatActivity {
 
     private EditText text_yanzheng;

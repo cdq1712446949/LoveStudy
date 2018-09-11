@@ -21,6 +21,11 @@ import cn.bmob.v3.listener.FindListener;
 import cn.bmob.v3.listener.UpdateListener;
 import com.fedming.bottomnavigationdemo.utils.Prompt;
 
+/**
+ * @author cdq created on 2018.9.13
+ * 该类是显示绑定手机号活动页面
+ */
+
 public class BangdingAcitivity extends AppCompatActivity {
 
     private EditText text_phone;
