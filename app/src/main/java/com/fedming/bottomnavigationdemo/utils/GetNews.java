@@ -1,4 +1,4 @@
-package com.fedming.bottomnavigationdemo.fragment;
+package com.fedming.bottomnavigationdemo.utils;
 
 import com.fedming.bottomnavigationdemo.model.News;
 

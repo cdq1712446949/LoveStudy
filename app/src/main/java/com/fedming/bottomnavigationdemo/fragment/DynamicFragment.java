@@ -19,6 +19,7 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.fedming.bottomnavigationdemo.R;
 import com.fedming.bottomnavigationdemo.model.News;
+import com.fedming.bottomnavigationdemo.utils.GetNews;
 
 import org.json.JSONException;
 
