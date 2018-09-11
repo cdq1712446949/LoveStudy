@@ -40,7 +40,6 @@ public class ChangePhoneAcitivity extends AppCompatActivity {
         button_yanzheng.setOnClickListener(new View.OnClickListener() {
             @Override
                 public void onClick(View v) {
-                Log.i("----phone--->",LoginActivity.user.getPhone());
                 Prompt.sendMassage(ChangePhoneAcitivity.this,LoginActivity.user.getPhone(),button_yanzheng);
             }
         });

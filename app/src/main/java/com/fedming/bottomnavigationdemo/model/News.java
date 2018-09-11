@@ -96,7 +96,6 @@ public class News {
                     JSONArray ja=jsonObject1.getJSONArray("imageUrls");
                     for (int t=0;t<ja.length();t++){
                         urlList.add(ja.getString(t));
-                        System.out.println(ja.getString(t));
                     }
                 }catch (Exception e){
                     System.out.println("该条新闻没有配图");

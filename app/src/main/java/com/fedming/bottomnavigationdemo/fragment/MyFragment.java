@@ -72,7 +72,6 @@ public class MyFragment extends Fragment implements ExpandableListView.OnChildCl
             setClickListener();
             setText(user.getName(), user.getPhone());
             String imageurl = user.getImageHead();
-//            Log.i("---imageurl--->",imageurl);
             if (imageurl.equals("")) {
                Toast.makeText(getActivity(),"头像地址为空",Toast.LENGTH_LONG).show();
             }else{
@@ -257,8 +256,6 @@ public class MyFragment extends Fragment implements ExpandableListView.OnChildCl
         dialog.setOnOperItemClickL(new OnOperItemClickL() {
             @Override
             public void onOperItemClick(AdapterView<?> parent, View view, int position, long id) {
-//                Log.i("---position-->",String.valueOf(position));
-//                Log.i("----id---->",String.valueOf(id));
                 if (position == 0) {
                     itemViewSex.setText("男");
                     final User usersex = new User();

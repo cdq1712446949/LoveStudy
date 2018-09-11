@@ -3,7 +3,6 @@ package com.fedming.bottomnavigationdemo.adapter;
 import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,8 +19,6 @@ public class BannerAdapter extends RecyclerView.Adapter<BannerAdapter.ViewHolder
     private List<Integer> list;
     private Context context;
 
-    private boolean isClear = false;
-
     public BannerAdapter(Context context, List<Integer> list) {
         this.list = list;
         this.context = context;
@@ -29,15 +26,12 @@ public class BannerAdapter extends RecyclerView.Adapter<BannerAdapter.ViewHolder
 
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        Log.i("---method--->", "onCreateViewHolder");
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_image, parent, false);
         return new ViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        Log.i("---method-->", "onBindViewHoleder");
-        Log.i("--position-->", String.valueOf(position));
         if (position > (list.size() - 1)) {
             list.clear();
         } else {

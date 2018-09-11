@@ -22,6 +22,7 @@ import android.widget.TextView;
 import com.fedming.bottomnavigationdemo.activity.OpenDocumentAcitivity;
 import com.fedming.bottomnavigationdemo.R;
 import com.fedming.bottomnavigationdemo.adapter.BannerAdapter;
+import com.fedming.bottomnavigationdemo.customcontrols.BannerIndicator;
 import com.fedming.bottomnavigationdemo.model.News;
 
 import java.util.ArrayList;
@@ -47,7 +48,7 @@ public class HomeFragment extends Fragment {
     private ArrayList<Document> documentlist = new ArrayList<Document>();
     private int resize = 0;
     private int listsize;
-    private List<Integer> list = new ArrayList<Integer>(4);
+    private List<Integer> list =null;
     private List<News> newsList=new ArrayList<>();
 
     @Nullable
@@ -58,6 +59,7 @@ public class HomeFragment extends Fragment {
         Bmob.initialize(getActivity(), Prompt.APPID);
         findControl(view);
 
+        list = new ArrayList<Integer>(4);
         list.add(R.drawable.b1);
         list.add(R.drawable.b2);
         list.add(R.drawable.b3);
@@ -70,7 +72,7 @@ public class HomeFragment extends Fragment {
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setHasFixedSize(true);
         recyclerView.setAdapter(adapter);
-        recyclerView.scrollToPosition(list.size() * 10);
+        recyclerView.scrollToPosition(list.size());
         PagerSnapHelper snapHelper = new PagerSnapHelper();
         snapHelper.attachToRecyclerView(recyclerView);
 
@@ -107,10 +109,7 @@ public class HomeFragment extends Fragment {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-//                Log.i("---tag--->", "item");
-//                Log.i("-----position--->", String.valueOf(position));
                 Intent intent = new Intent(getContext(), OpenDocumentAcitivity.class);
-//                Log.i("-----url----->", documentlist.get(position).getWendang());
                 intent.putExtra("url", documentlist.get(position).getWendang());
                 startActivity(intent);
             }
@@ -142,7 +141,7 @@ public class HomeFragment extends Fragment {
                 } else {
                     Log.i("-----Massage--->", e.getMessage());
                 }
-                Log.i("-----documentsize--->", String.valueOf(documentlist.size()));
+//                Log.i("-----documentsize--->", String.valueOf(documentlist.size()));
                 resize = list.size();
                 listView.setAdapter(new NewsAdapter());
             }

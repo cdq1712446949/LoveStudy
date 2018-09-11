@@ -1,4 +1,4 @@
-package com.fedming.bottomnavigationdemo.fragment;
+package com.fedming.bottomnavigationdemo.customcontrols;
 
 import android.content.Context;
 import android.content.res.TypedArray;
