@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
-import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -13,10 +12,17 @@ import android.view.MenuItem;
 import android.widget.Toast;
 
 import com.fedming.bottomnavigationdemo.fourfragment.DynamicFragment;
+import com.fedming.bottomnavigationdemo.fourfragment.GetNews;
 import com.fedming.bottomnavigationdemo.fourfragment.HomeFragment;
 import com.fedming.bottomnavigationdemo.fourfragment.MyFragment;
+import com.fedming.bottomnavigationdemo.fourfragment.News;
 import com.fedming.bottomnavigationdemo.fourfragment.ShareFragment;
-import com.tencent.smtt.sdk.QbSdk;
+
+import org.json.JSONException;
+
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by bruce on 2016/11/1.
@@ -29,8 +35,9 @@ public class HomeActivity extends AppCompatActivity {
     private MenuItem menuItem;
     private BottomNavigationView bottomNavigationView;
     private long mExitTime;
-    private boolean isLogin=false;
+    private boolean isLogin = false;
     private App app;
+//    private List<News> newsList = new ArrayList<>();
 
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         //判断用户是否点击了“返回键”
@@ -55,15 +62,15 @@ public class HomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
-        Intent intent=getIntent();
-        isLogin=intent.getBooleanExtra("islogin",isLogin);
-        if (isLogin){
-            Log.i("-----isLogin--->","true");
-        }else {
-            Log.i("-----isLogin--->","false");
+        Intent intent = getIntent();
+        isLogin = intent.getBooleanExtra("islogin", isLogin);
+        if (isLogin) {
+            Log.i("-----isLogin--->", "true");
+        } else {
+            Log.i("-----isLogin--->", "false");
         }
 
-        app=new App();
+        app = new App();
 
         viewPager = (ViewPager) findViewById(R.id.viewpager);
         bottomNavigationView = (BottomNavigationView) findViewById(R.id.bottom_navigation);
@@ -103,7 +110,6 @@ public class HomeActivity extends AppCompatActivity {
 
             @Override
             public void onPageSelected(int position) {
-//                Log.i("int ",""+position);
                 switch (position) {
                     case 0:
                         setTitle("首页");
@@ -132,14 +138,6 @@ public class HomeActivity extends AppCompatActivity {
             }
         });
 
-        //禁止ViewPager滑动
-//        viewPager.setOnTouchListener(new View.OnTouchListener() {
-//            @Override
-//            public boolean onTouch(View v, MotionEvent event) {
-//                return true;
-//            }
-//        });
-
         setupViewPager(viewPager);
     }
 
@@ -152,5 +150,7 @@ public class HomeActivity extends AppCompatActivity {
         adapter.addFragment(new MyFragment(isLogin));
         viewPager.setAdapter(adapter);
     }
+
+
 
 }

@@ -26,10 +26,14 @@ import android.widget.Toast;
 import com.fedming.bottomnavigationdemo.OpenDocumentAcitivity;
 import com.fedming.bottomnavigationdemo.R;
 
+import org.json.JSONException;
+
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.ThreadLocalRandom;
 import java.util.concurrent.TimeUnit;
 
 import cn.bmob.v3.Bmob;
@@ -50,6 +54,7 @@ public class HomeFragment extends Fragment {
     private int resize = 0;
     private int listsize;
     private List<Integer> list = new ArrayList<Integer>(4);
+    private List<News> newsList=new ArrayList<>();
 
     @Nullable
     @Override
@@ -97,7 +102,9 @@ public class HomeFragment extends Fragment {
             }
         }, 2000, 2000, TimeUnit.MILLISECONDS);
 
-        getDocument();
+        Thread thread1=new Thread(new DocumentThread());
+        thread1.start();
+
         return view;
     }
 
@@ -106,10 +113,10 @@ public class HomeFragment extends Fragment {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Log.i("---tag--->", "item");
-                Log.i("-----position--->", String.valueOf(position));
+//                Log.i("---tag--->", "item");
+//                Log.i("-----position--->", String.valueOf(position));
                 Intent intent = new Intent(getContext(), OpenDocumentAcitivity.class);
-                Log.i("-----url----->", documentlist.get(position).getWendang());
+//                Log.i("-----url----->", documentlist.get(position).getWendang());
                 intent.putExtra("url", documentlist.get(position).getWendang());
                 startActivity(intent);
             }
@@ -148,6 +155,15 @@ public class HomeFragment extends Fragment {
         });
     }
 
+    //子线程中加载网络数据
+    private class DocumentThread implements Runnable{
+        @Override
+        public void run() {
+            getDocument();
+        }
+    }
+
+
     private class NewsAdapter extends BaseAdapter {
 
         @Override
@@ -168,7 +184,7 @@ public class HomeFragment extends Fragment {
         @Override
         public View getView(int position, View convertView, ViewGroup parent) {
 
-            Log.i("-----setView----->", "setView");
+//            Log.i("-----setView----->", "setView");
             final ViewHolder holder;
             if (convertView == null) {
                 holder = new ViewHolder();
