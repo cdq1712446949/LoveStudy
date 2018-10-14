@@ -47,8 +47,9 @@ public class Prompt {
     }
 
     public static void sendMassage(final Context context, String phone, final Button button) {
-        if (Prompt.isMobileNO(phone)) {
-            BmobSMS.requestSMSCode(context, phone, Prompt.MSSTYLE, new RequestSMSCodeListener() {
+        System.out.println(phone+"pppppppppppppppp");
+//        if (!Prompt.isMobileNO(phone)) {
+            BmobSMS.requestSMSCode(context, phone,MSSTYLE, new RequestSMSCodeListener() {
                 @Override
                 public void done(Integer integer, BmobException e) {
                     if (e == null) {
@@ -60,9 +61,9 @@ public class Prompt {
                     }
                 }
             });
-        } else {
-            Toast.makeText(context, "手机号不符合规范", Toast.LENGTH_LONG).show();
-        }
+//        } else {
+//            Toast.makeText(context, "手机号不符合规范", Toast.LENGTH_LONG).show();
+//        }
     }
 
     //一个button提示对话框

@@ -3,6 +3,7 @@ package com.fedming.bottomnavigationdemo.activity;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -30,9 +31,9 @@ public class ForgetNewActivity extends AppCompatActivity {
         findControl();
 
         Intent intent=getIntent();
-//        phone=intent.getStringExtra("phone");
+        phone=intent.getStringExtra("phone");
         id=intent.getStringExtra("id");
-//        Log.i("---id--->",id);
+        System.out.println(id);
 
         button_sure.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -50,8 +51,9 @@ public class ForgetNewActivity extends AppCompatActivity {
                     public void done(BmobException e) {
                         if (e==null){
                             Toast.makeText(ForgetNewActivity.this,"修改成功",Toast.LENGTH_LONG).show();
+                            finish();
                         }else{
-                            Toast.makeText(ForgetNewActivity.this,"修改失败",Toast.LENGTH_LONG).show();
+                            Toast.makeText(ForgetNewActivity.this,e.getMessage(),Toast.LENGTH_LONG).show();
                         }
                     }
                 });
